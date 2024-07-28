@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 import { ClerkProvider } from '@clerk/nextjs';
+import { AppLayout } from '@/components';
 
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -19,10 +20,12 @@ export default function RootLayout({
     <ClerkProvider>
       <html
         lang="en"
-        data-theme="dark"
-        className="bg-gradient-to-r from-pink-500 to-yellow-500 text-white"
+        data-theme="light"
+        className="bg-gradient-to-r from-pink-700 to-yellow-700 text-white"
       >
-        <body className={montserrat.className}>{children}</body>
+        <body className={montserrat.className}>
+          <AppLayout>{children}</AppLayout>
+        </body>
       </html>
     </ClerkProvider>
   );
